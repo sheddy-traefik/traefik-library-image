@@ -62,7 +62,8 @@ X-Real-Ip: 192.168.215.1
 
 Access the Traefik Dashboard:
 
-Open your web browser and navigate to `http://localhost:8080` to access the Traefik dashboard. This will provide an overview of routers, services, and middlewares.
+Open your web browser and navigate to `http://localhost:8080` to access the Traefik dashboard.
+This will provide an overview of routers, services, and middlewares.
 
 ![Web UI](https://raw.githubusercontent.com/traefik/traefik/v3.2/docs/content/assets/img/webui-dashboard.png)
 
@@ -83,13 +84,13 @@ api:
   insecure: true
 ```
 
-Start Traefik:
+Start Traefik v2:
 
 ```bash
 docker run -d -p 8080:8080 -p 80:80 \
 -v $PWD/traefik.yml:/etc/traefik/traefik.yml \
 -v /var/run/docker.sock:/var/run/docker.sock \
-traefik:v2.5
+traefik:v2.11
 ```
 
 Start a backend server, named `test`:
@@ -138,7 +139,7 @@ Grab a [sample configuration file](https://raw.githubusercontent.com/traefik/tra
   domain = "docker.localhost"
 ```
 
-Start Traefik:
+Start Traefik v1:
 
 ```bash
 docker run -d -p 8080:8080 -p 80:80 \
