@@ -130,7 +130,6 @@ You can find the complete documentation:
 
 - for [v3.x](https://doc.traefik.io/traefik/)
 - for [v2.11](https://doc.traefik.io/traefik/v2.11)
-- for [v1.7](https://doc.traefik.io/traefik/v1.7)
 
 A community support is available at [https://community.traefik.io](https://community.traefik.io)
 
