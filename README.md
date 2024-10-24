@@ -38,7 +38,7 @@ Start a backend server using the `traefik/whoami` image:
 docker run -d --name test traefik/whoami
 ```
 
-Access the whoami Service through Traefik:
+Access the whoami Service through Traefik via the defined rule `test.docker.localhost`:
 
 ```console
 $ curl test.docker.localhost
@@ -65,11 +65,11 @@ Access the Traefik Dashboard:
 Open your web browser and navigate to `http://localhost:8080` to access the Traefik dashboard.
 This will provide an overview of routers, services, and middlewares.
 
-![Web UI](https://raw.githubusercontent.com/traefik/traefik/v3.2/docs/content/assets/img/webui-dashboard.png)
+![Dashboard UI](https://raw.githubusercontent.com/traefik/traefik/v3.2/docs/content/assets/img/webui-dashboard.png)
 
 ## Traefik v2 - Example usage
 
-Enable `docker` provider and web UI:
+Enable `docker` provider and dashboard UI:
 
 ```yml
 ## traefik.yml
@@ -86,23 +86,22 @@ api:
 
 Start Traefik v2:
 
-```bash
+```sh
 docker run -d -p 8080:8080 -p 80:80 \
 -v $PWD/traefik.yml:/etc/traefik/traefik.yml \
 -v /var/run/docker.sock:/var/run/docker.sock \
 traefik:v2.11
 ```
 
-Start a backend server, named `test`:
+Start a backend server using the `traefik/whoami` image:
 
-```bash
+```sh
 docker run -d --name test traefik/whoami
 ```
 
-And finally, you can access to your `whoami` server throught Traefik, on the domain name `test.docker.localhost`:
+Access the whoami Service through Traefik via the defined rule `test.docker.localhost`:
 
 ```console
-# $ curl --header 'Host:test.docker.localhost' 'http://localhost:80/'
 $ curl test.docker.localhost
 Hostname: 390a880bdfab
 IP: 127.0.0.1
@@ -120,9 +119,12 @@ X-Forwarded-Server: 7e073cb54211
 X-Real-Ip: 172.17.0.1
 ```
 
-The web UI [http://localhost:8080](http://localhost:8080) will give you an overview of the routers, services, and middlewares.
+Access the Traefik Dashboard:
 
-![Web UI](https://raw.githubusercontent.com/traefik/traefik/v2.0/docs/content/assets/img/webui-dashboard.png)
+Open your web browser and navigate to `http://localhost:8080` to access the Traefik dashboard.
+This will provide an overview of routers, services, and middlewares.
+
+![Dashboard UI](https://raw.githubusercontent.com/traefik/traefik/v2.0/docs/content/assets/img/webui-dashboard.png)
 
 ## Documentation
 
